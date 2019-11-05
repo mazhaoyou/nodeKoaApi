@@ -51,20 +51,20 @@ async function detailAction(ctx) {
     type_id: 0
   }).select();
   let commentInfo = {};
-  if (hotComment.length != 0) {
-    const commentUser = await mysql('shop_user').column('nickname', 'username', 'avatar').where({
-      id: hotComment[0].user_id
-    }).select();
-    commentInfo = {
-      content: Buffer.from(hotComment[0].content, 'base64').toString(),
-      add_time: hotComment.add_time,
-      nickname: commentUser[0].nickname,
-      avatar: commentUser[0].avatar,
-      pic_list: await mysql('shop_comment_picture').where({
-        comment_id: hotComment[0].id
-      }).select()
-    };
-  }
+  // if (hotComment.length != 0) {
+  //   const commentUser = await mysql('shop_user').column('nickname', 'username', 'avatar').where({
+  //     id: hotComment[0].user_id
+  //   }).select();
+  //   commentInfo = {
+  //     content: Buffer.from(hotComment[0].content, 'base64').toString(),
+  //     add_time: hotComment.add_time,
+  //     nickname: commentUser[0].nickname,
+  //     avatar: commentUser[0].avatar,
+  //     pic_list: await mysql('shop_comment_picture').where({
+  //       comment_id: hotComment[0].id
+  //     }).select()
+  //   };
+  // }
 
   const comment = {
     count: commentCount[0].number,
@@ -100,7 +100,6 @@ async function detailAction(ctx) {
   ctx.body = {
     "info": info[0] || [],
     "gallery": imgUrl,
-    "attribute": attribute,
     "issue": issue,
     "comment": comment,
     "brand": brand[0] || [],
