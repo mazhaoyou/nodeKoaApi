@@ -11,6 +11,7 @@
   "author": "Jason",
   "license": "MIT",
   "dependencies": {
+    "alipay-sdk": "^3.1.5",
     "axios": "^0.15.3",
     "knex": "^0.13.0",
     "koa": "^2.0.0",
@@ -22,6 +23,7 @@
     "mkdir-p": "0.0.7",
     "mysql": "^2.14.1",
     "pify": "^2.3.0",
+    "qr-image": "^3.2.0",
     "wafer-node-sdk": "^1.4.0"
   },
   "devDependencies": {

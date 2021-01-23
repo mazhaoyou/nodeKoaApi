@@ -8,12 +8,12 @@ module.exports = async function (ctx, next) {
         // 调用下一个 middleware
         await next()
 
-       /*处理响应结果
-        * 如果直接写入在 body 中，则不作处理
-        * 如果写在 ctx.body 为空，则使用 state 作为响应
-
-        没有特殊处理的 接口  ctx.body.code 为 undefined的*/
-        console.log("code="+ ctx.body.code)
+        /*处理响应结果
+         * 如果直接写入在 body 中，则不作处理
+         * 如果写在 ctx.body 为空，则使用 state 作为响应
+ 
+         没有特殊处理的 接口  ctx.body.code 为 undefined的*/
+        console.log("code=" + ctx.body.code)
         let message = "成功";
         if (ctx.state.code == -1) {
             message = "失败";
@@ -23,7 +23,7 @@ module.exports = async function (ctx, next) {
             ctx.body = ctx.body;
         } else {
             ctx.body = {
-                code: "0001",
+                code: "2000",
                 message: message,
                 data: ctx.body
 

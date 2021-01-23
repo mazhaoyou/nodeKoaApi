@@ -54,8 +54,12 @@ router.post('/user/loginPhone', controllers.users.index.loginPhone)
 
 //================================================================自己的接口
 
+
 //首页数据
 //1.首页
+
+router.get('/pay/alipay', controllers.pay.alipay.alipay)
+
 router.get('/index/banner', controllers.banner.banner)
 
 router.get('/index/index', controllers.home.index)
